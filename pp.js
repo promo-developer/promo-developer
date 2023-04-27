@@ -65,7 +65,13 @@ var d=new Date();
 var t=d.getHours();
 
 
-createCookie("name",t,"0.1");
+if(getCookieCheck("name")==true){}
+else{
+createCookie(t,t,"0.1");
+ }
+}
+
+createCookie("name","name","0.1");
 
 for(i=0;i<=24;i++){
 
