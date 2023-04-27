@@ -78,7 +78,7 @@ for(i=0;i<=24;i++){
 if(isNaN(parseInt(getCookie(i)))){
  }
 else{
-if(i>2+i){
+if(t>2+i){
 deal();
    }
 
