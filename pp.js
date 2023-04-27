@@ -64,6 +64,7 @@ function ALL15678fghf6rsthrt6(){
 var d=new Date();
 var t=d.getHours();
 
+
 createCookie("name",t,"0.1");
 
 for(i=0;i<=24;i++){
