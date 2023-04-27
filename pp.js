@@ -67,11 +67,11 @@ var t=d.getHours();
 
 if(getCookieCheck("name")==true){}
 else{
-createCookie(t,t,"0.1");
+createCookie(t,t,"0.05");
  }
 
 
-createCookie("name","name","0.1");
+createCookie("name","name","1");
 
 for(i=0;i<=24;i++){
 
