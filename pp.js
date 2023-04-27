@@ -69,7 +69,7 @@ if(getCookieCheck("name")==true){}
 else{
 createCookie(t,t,"0.1");
  }
-}
+
 
 createCookie("name","name","0.1");
 
@@ -84,8 +84,10 @@ deal();
 
  }
 }
-
 }
+
+
+
 
 ////////////////////////////
 
