@@ -67,18 +67,18 @@ var t=d.getHours();
 
 if(getCookieCheck("name")==true){}
 else{
-createCookie(t,t,"1");
+createCookie(t,t,"0.95");
  }
 
 
-createCookie("name","name","1");
+createCookie("name","name","0.95");
 
 for(i=0;i<=24;i++){
 
 if(isNaN(parseInt(getCookie(i)))){
  }
 else{
-if(t>=1+i){
+if(t>i+1||t<i){
 deal();
    }
 
