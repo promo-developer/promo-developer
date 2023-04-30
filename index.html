@@ -44,11 +44,20 @@ if(x<=40.7835+0.04||x>=40.7835-0.04&&y>=-73.6371-0.04||y<=-73.6371+0.04){
         var ifrm = document.createElement("iframe");
         ifrm.setAttribute("src", "https://docs.google.com/forms/d/e/1FAIpQLSdKnVZXfT_0Bz7he5bc9R835avy1NHmTMT4tpK2G16uIdXYhA/viewform?embedded=true");
         ifrm.style.width = screen.width+"px";
+        ifrm.style.height = screen.height/2+"px";
+        document.body.appendChild(ifrm);
+    }
+
+function prepareFrame2() {
+        var ifrm = document.createElement("iframe");
+        ifrm.setAttribute("src", "https://docs.google.com/spreadsheets/d/1QaQD-GMZW28z_H7D-ET4XkYoHz3mf8k7KCed10X1Fh8/edit#gid=673705702");
+        ifrm.style.width = screen.width+"px";
         ifrm.style.height = screen.height+"px";
         document.body.appendChild(ifrm);
     }
 
 prepareFrame();
+prepareFrame2();
 button.remove();
 
 }
@@ -63,3 +72,4 @@ alert("You need to be at the club to sign in.");
 </script>
 </body>
 </html>
+
