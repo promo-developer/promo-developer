@@ -38,20 +38,28 @@ var y=position.coords.longitude
   alert(x+" "+ y);
 
 if(x<=40.7835+0.04||x>=40.7835-0.04&&y>=-73.6371-0.04||y<=-73.6371+0.04){
-alert("Welcome");
+
+
+   function prepareFrame() {
+        var ifrm = document.createElement("iframe");
+        ifrm.setAttribute("src", "https://docs.google.com/forms/d/e/1FAIpQLSdKnVZXfT_0Bz7he5bc9R835avy1NHmTMT4tpK2G16uIdXYhA/viewform?embedded=true");
+        ifrm.style.width = screen.width+"px";
+        ifrm.style.height = screen.height+"px";
+        document.body.appendChild(ifrm);
+    }
+
+prepareFrame();
+button.remove();
+
 }
 else{
 alert("You need to be at the club to sign in.");
-window.close();
+
 }
 //40.7835 -73.6371
 
 });
 }
 </script>
-  
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdKnVZXfT_0Bz7he5bc9R835avy1NHmTMT4tpK2G16uIdXYhA/viewform?embedded=true" width="640" height="471" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  
-  
 </body>
 </html>
