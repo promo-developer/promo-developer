@@ -26,23 +26,33 @@
 </div>
 
 <script>
+var c=document.getElementById("container");
+var b=document.getElementById("box");
+var img=document.createElement("img");
+c.appendChild(img);
+img.src="tal.png";
+c.style.height=screen.height;
+c.style.width=screen.width;
+////////////////////////////////////////////////////////////
 var time=new Date();
 ///////////////////
-var open=6; //bar opening time in gmt not am/pm. Put minutes as fraction of an hour.
+var open=17; //bar opening time in gmt not am/pm. Put minutes as fraction of an hour.
 ///////////////////
 time=time.getHours()+time.getMinutes()/60;
 var button=document.createElement("button");
 button.innerHTML="JOIN";
 button.style.background="lime";
 button.style.fontSize="xx-large";
-document.body.appendChild(button);
+b.appendChild(button);
 button.onclick=function(){
 navigator.geolocation.getCurrentPosition(function(position) {
 var x=position.coords.latitude;
 var y=position.coords.longitude
-  alert(x+" "+ y);
+ // alert(x+" "+ y);
 
-if(time>open&&((x<=40.7835+0.04||x>=40.7835-0.04)&&(y>=-73.6371-0.04||y<=-73.6371+0.04))){
+//28.567826357291334, -81.32629373257846
+
+if(time>open&&((x<=28.567826357291334+0.04||x>=28.567826357291334-0.04)&&(y>=-81.32629373257846-0.04||y<=-81.32629373257846+0.4))){
 
 
    function prepareFrame() {
