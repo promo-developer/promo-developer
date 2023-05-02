@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+<title>Chess Board List</title>
+</head>
+<body>
+
+<style>
+#container {
+  background: "yellow";
+  position: relative;
+  height: 100px;
+  width:  100px;
+}
+
+#box {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+</style>
+
+<div id="container">
+  <div id="box"</div>
+</div>
+
+<script>
+var time=new Date();
+///////////////////
+var open=6; //bar opening time in gmt not am/pm. Put minutes as fraction of an hour.
+///////////////////
+time=time.getHours()+time.getMinutes()/60;
+var button=document.createElement("button");
+button.innerHTML="JOIN";
+button.style.background="lime";
+button.style.fontSize="xx-large";
+document.body.appendChild(button);
+button.onclick=function(){
+navigator.geolocation.getCurrentPosition(function(position) {
+var x=position.coords.latitude;
+var y=position.coords.longitude
+  alert(x+" "+ y);
+
+if(time>open&&((x<=40.7835+0.04||x>=40.7835-0.04)&&(y>=-73.6371-0.04||y<=-73.6371+0.04))){
+
+
+   function prepareFrame() {
+        var ifrm = document.createElement("iframe");
+        ifrm.setAttribute("src", "https://docs.google.com/forms/d/e/1FAIpQLSdKnVZXfT_0Bz7he5bc9R835avy1NHmTMT4tpK2G16uIdXYhA/viewform?embedded=true");
+        ifrm.style.width = screen.width+"px";
+        ifrm.style.height = screen.height/2+"px";
+        document.body.appendChild(ifrm);
+    }
+
+function prepareFrame2() {
+        var ifrm = document.createElement("iframe");
+        ifrm.setAttribute("src", "https://docs.google.com/spreadsheets/d/1QaQD-GMZW28z_H7D-ET4XkYoHz3mf8k7KCed10X1Fh8/edit#gid=673705702");
+        ifrm.style.width = screen.width+"px";
+        ifrm.style.height = screen.height+"px";
+        document.body.appendChild(ifrm);
+    }
+
+prepareFrame();
+prepareFrame2();
+button.remove();
+
+}
+else{
+if(time<open){
+alert("You need to be at the club after it opens to sign in.");
+}
+else{
+alert("You need to be at the club to sign in.");
+ }
+}
+//40.7835 -73.6371
+
+});
+}
+</script>
+</body>
+</html>
