@@ -1,96 +1,200 @@
 <!doctype html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8551055161078584"
+<html lang="en">
+	<head>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8551055161078584"
      crossorigin="anonymous"></script>
-  
-<title>Chess Board List</title>
-</head>
-<body>
 
-<style>
-#container {
-  background: "yellow";
-  position: relative;
-  height: 100px;
-  width:  100px;
-}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>game</title>
 
-#box {
-  position: absolute;
-  top: 50px;
-  left: 20px;
-}
-</style>
 
-<div id="container">
-  <div id="box"</div>
-</div>
+    </head>
+    <body>...</body>
+
+
 
 <script>
-var c=document.getElementById("container");
-var b=document.getElementById("box");
-var img=document.createElement("img");
-c.appendChild(img);
-img.src="tal.png";
-c.style.height=screen.height;
-c.style.width=screen.width;
-////////////////////////////////////////////////////////////
-var time=new Date();
-///////////////////
-var open=17; //bar opening time in gmt not am/pm. Put minutes as fraction of an hour.
-///////////////////
-time=time.getHours()+time.getMinutes()/60;
-var button=document.createElement("button");
-button.innerHTML="JOIN";
-button.style.background="lime";
-button.style.fontSize="xx-large";
-b.appendChild(button);
-button.onclick=function(){
-navigator.geolocation.getCurrentPosition(function(position) {
-var x=position.coords.latitude;
-var y=position.coords.longitude
- // alert(x+" "+ y);
-
-//28.567826357291334, -81.32629373257846
-
-if(time>open&&((x<=28.567826357291334+0.04||x>=28.567826357291334-0.04)&&(y>=-81.32629373257846-0.04||y<=-81.32629373257846+0.4))){
-
-
-   function prepareFrame() {
-        var ifrm = document.createElement("iframe");
-        ifrm.setAttribute("src", "https://docs.google.com/forms/d/e/1FAIpQLSdKnVZXfT_0Bz7he5bc9R835avy1NHmTMT4tpK2G16uIdXYhA/viewform?embedded=true");
-        ifrm.style.width = screen.width+"px";
-        ifrm.style.height = screen.height/2+"px";
-        document.body.appendChild(ifrm);
-    }
-
-function prepareFrame2() {
-        var ifrm = document.createElement("iframe");
-        ifrm.setAttribute("src", "https://docs.google.com/spreadsheets/d/1QaQD-GMZW28z_H7D-ET4XkYoHz3mf8k7KCed10X1Fh8/edit#gid=673705702");
-        ifrm.style.width = screen.width+"px";
-        ifrm.style.height = screen.height+"px";
-        document.body.appendChild(ifrm);
-    }
-
-prepareFrame();
-prepareFrame2();
-button.remove();
-
+function attempted(){
+this.a=0;
+this.c=0;
 }
-else{
-if(time<open){
-alert("You need to be at the club after it opens to sign in.");
+
+var a1=new attempted;
+
+
+function layout(){
+this.c=document.createElement("container");
+this.c.style.position="relative";
+document.body.appendChild(this.c);
+var b=document.createElement("box");
+this.c.appendChild(b);
+b.style.position="absolute";
 }
-else{
-alert("You need to be at the club to sign in.");
+
+function box(col,w,h,t,l,i,f,o,a,f2){
+var c=l1.c;
+c.style.position="relative";
+document.body.appendChild(c);
+var b=document.createElement("box");
+c.appendChild(b);
+b.style.position="absolute";
+var butt=document.createElement("button");
+b.appendChild(butt);
+butt.style.fontSize="xx-large";
+butt.style.background=col;
+butt.style.height=w+"px";
+butt.style.width=h+"px";
+b.style.top=t+"px";
+b.style.left=l+"px";
+butt.innerHTML=i;
+butt.onclick=function(){
+if(f!=nada){
+var ch = c.childNodes;
+for(i=ch.length-1;i>=0;i--){
+ch[i].remove();
+}
+var v=layout();
+
+f(o,a,f2);
  }
 }
-//40.7835 -73.6371
-
-});
 }
+
+
+var l1=new layout();
+
+box("white",100,200,0,0,"Main Menu",menu);
+
+function menu(){ 
+box("white",100,200,0,0,"Main Menu",menu);
+box("red",100,200,200,0,"Addition",add);
+box("blue",100,200,300,0,"Subtraction",sub);
+box("orange",100,200,400,0,"Multiplication",mult);
+}
+
+function nada(){
+}
+
+function answer(o,a,f2){
+if(o==a){
+box("pink",100,200,300,0,"Good Job!",f2);
+tally();
+f2();
+ }
+else{
+box("lime",100,200,300,0,"Try again.",f2);
+tally();
+f2();
+ }
+
+}
+
+function add(){
+var r1=(Math.round(Math.random()*1000))%21;
+var r2=(Math.round(Math.random()*1000))%21;
+var a11=r1+r2;
+var a1=r1+r2;
+var a2=a1+2;
+var a3=a1+1;
+var a4=a1+3;
+
+
+var order=(Math.round(Math.random()*1000))%88;
+for(i=order;i>0;i--){
+var j=a1;
+a1=a2;
+a2=a3;
+a3=a4;
+a4=j;
+}
+
+box("white",100,200,0,0,"Main Menu",menu);
+box("aqua",100,200,200,0,r1+" + "+r2+" =",menu);
+box("yellow",100,200,200,400,a1,answer,a1,a11,add);
+box("yellow",100,200,300,400,a2,answer,a2,a11,add);
+box("yellow",100,200,400,400,a3,answer,a3,a11,add);
+box("yellow",100,200,500,400,a4,answer,a4,a11,add);
+}
+
+function sub(){
+var r1=(Math.round(Math.random()*1000))%21;
+var r2=(Math.round(Math.random()*1000))%21;
+while(r2>r1){
+r1=(Math.round(Math.random()*1000))%21;
+r2=(Math.round(Math.random()*1000))%21;
+}
+var a11=r1-r2;
+var a1=a11;
+var a2=a1+2;
+var a3=a1+1;
+var a4=a1+3;
+
+
+var order=(Math.round(Math.random()*1000))%88;
+for(i=order;i>0;i--){
+var j=a1;
+a1=a2;
+a2=a3;
+a3=a4;
+a4=j;
+}
+
+box("white",100,200,0,0,"Main Menu",menu);
+box("aqua",100,200,200,0,r1+" - "+r2+" =",menu);
+box("yellow",100,200,200,400,a1,answer,a1,a11,sub);
+box("yellow",100,200,300,400,a2,answer,a2,a11,sub);
+box("yellow",100,200,400,400,a3,answer,a3,a11,sub);
+box("yellow",100,200,500,400,a4,answer,a4,a11,sub);
+}
+
+
+function mult(){
+var r1=(Math.round(Math.random()*1000))%11;
+var r2=(Math.round(Math.random()*1000))%11;
+
+var a11=r1*r2;
+var a1=a11;
+var a2=a1+2;
+var a3=a1+1;
+var a4=a1+3;
+
+
+var order=(Math.round(Math.random()*1000))%88;
+for(i=order;i>0;i--){
+var j=a1;
+a1=a2;
+a2=a3;
+a3=a4;
+a4=j;
+}
+
+box("white",100,200,0,0,"Main Menu",menu);
+box("aqua",100,200,200,0,r1+" x "+r2+" =",menu);
+box("yellow",100,200,200,400,a1,answer,a1,a11,mult);
+box("yellow",100,200,300,400,a2,answer,a2,a11,mult);
+box("yellow",100,200,400,400,a3,answer,a3,a11,mult);
+box("yellow",100,200,500,400,a4,answer,a4,a11,mult);
+}
+
+function tally(){
+
+var ch = document.getElementsByTagName("button");
+for(i=ch.length-1;i>=0;i--){
+if(ch[i].style.background=="pink"){
+a1.c++;
+a1.a++;
+ }
+if(ch[i].style.background=="lime"){
+a1.a++;
+ }
+}
+
+box("tan",100,200,0,300,"Grade: "+a1.c+"/"+a1.a,nada);
+
+}
+
+
+
 </script>
-</body>
 </html>
